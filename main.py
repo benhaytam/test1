@@ -8,8 +8,12 @@ class ToDoList:
 
     def load(self):
         if os.path.exists(self.filename):
-            with open(self.filename, "r") as f:
-                return json.load(f)
+            try:
+                with open(self.filename, "r") as f:
+                    return json.load(f)
+            except json.JSONDecodeError:
+                # Handle empty or corrupt JSON files gracefully
+                return []
         return []
 
     def save(self):
