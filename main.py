@@ -48,3 +48,5 @@ class ToDoList:
             print(f"Deleted: {removed['task']}")
         else:
             print("Invalid task number.")
+
+if __name__ == "__main__": print("Welcome to ToDoList!")
